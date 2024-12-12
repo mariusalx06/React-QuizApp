@@ -1,0 +1,21 @@
+.quizContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: none;
+  border-radius: 1rem;
+  max-width: 500px;
+  width: 100%;
+  margin: 4rem auto;
+  background-color: #ffd2a0;
+  backdrop-filter: blur(1px);
+  color: black;
+}
+
+@media (max-width: 600px) {
+  .quizContainer {
+    margin: 2rem auto;
+    width: 90%;
+  }
+}

@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Geist+Mono&family=Montserrat:ital@0;1&display=swap");
+
+:root {
+  --background-color: white;
+  --text-color: black;
+}
+
+[data-theme="dark"] {
+  --background-color: #333;
+  --text-color: white;
+}
+
+body {
+  font-family: "Geist Mono", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cardo", sans-serif;
+}

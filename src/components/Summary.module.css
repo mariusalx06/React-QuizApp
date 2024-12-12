@@ -1,0 +1,66 @@
+.summaryContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  color: black;
+  width: 100%;
+}
+
+.completedImage {
+  width: 120px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.completionText {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.correctAnswer {
+  color: #4caf50;
+}
+
+.incorrectAnswer {
+  color: #f44336;
+}
+
+.bottomSide {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.resetButton {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.resetButton:hover {
+  background-color: black;
+  color: white;
+}
+
+[data-theme="dark"] .resetButton {
+  background-color: #333333;
+  color: white;
+}
+
+[data-theme="dark"] .resetButton:hover {
+  background-color: white;
+  color: black;
+}

@@ -1,0 +1,54 @@
+.question h2 {
+  padding: 0.5rem 0.5rem;
+  margin: 0;
+}
+.ulList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.liItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.answer {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  transition: background-color 0.3s ease;
+  width: 80%;
+}
+
+.answer:hover {
+  background-color: black;
+  color: white;
+}
+
+[data-theme="dark"] .answer {
+  background-color: #333333;
+  color: white;
+}
+
+[data-theme="dark"] .answer:hover {
+  background-color: black;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .answer {
+    width: 90%;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
