@@ -43,16 +43,22 @@
   padding: 0.5rem 1rem;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-size: 1rem;
   cursor: pointer;
   border-radius: 1rem;
   transition: background-color 0.3s ease;
+  gap: 0.3rem;
 }
 
 .resetButton:hover {
   background-color: black;
   color: white;
+}
+
+.resetButton svg {
+  font-size: 1.25rem;
 }
 
 [data-theme="dark"] .resetButton {

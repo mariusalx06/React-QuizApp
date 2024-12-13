@@ -1,15 +1,22 @@
 import React, { useContext } from "react";
-import { QuizContext } from "../store/QuizContext.jsx";
+import { QuizContext } from "../store/QuizContext";
 import styles from "./Quiz.module.css";
-import Question from "./Question.jsx";
-import Summary from "./Summary.jsx";
+import PreGame from "./PreGame";
+import Question from "./Question";
+import Summary from "./Summary";
 
 export default function Quiz() {
-  const { quizIsComplete } = useContext(QuizContext);
+  const { quizIsComplete, quizStarted } = useContext(QuizContext);
 
-  return (
-    <div className={styles.quizContainer}>
-      {quizIsComplete ? <Summary /> : <Question />}
-    </div>
-  );
+  let quizContent;
+
+  if (!quizStarted) {
+    quizContent = <PreGame />;
+  } else if (quizIsComplete) {
+    quizContent = <Summary />;
+  } else {
+    quizContent = <Question />;
+  }
+
+  return <div className={styles.quizContainer}>{quizContent}</div>;
 }

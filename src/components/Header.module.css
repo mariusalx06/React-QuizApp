@@ -12,14 +12,23 @@
   box-sizing: border-box;
 }
 
-.header img {
-  margin-bottom: 1rem;
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  max-width: 6rem;
+  margin-bottom: 2rem;
 }
 
-.header h1 {
-  margin-bottom: 1rem;
+.top img {
+  margin-right: 0.5rem;
+  width: 6rem;
+  height: auto;
+}
+
+.top h1 {
+  margin: 0;
+  text-align: center;
 }
 
 .options {
@@ -28,15 +37,6 @@
   align-items: center;
   width: 80%;
   padding: 0 1rem;
-}
-
-.header .toggleThemeButton {
-  margin-right: 1rem;
-}
-
-.header p {
-  text-align: center;
-  margin: 0;
 }
 
 .toggleThemeButton {
@@ -70,69 +70,27 @@
   background-color: #333;
 }
 
-.progress {
-  width: 100%;
-  height: 10px;
-  appearance: none;
-  border-radius: 10px;
-  background-color: #ffd2a0;
-  border: none;
-  padding: 0;
-  overflow: hidden;
-}
+@media (max-width: 768px) {
+  .header {
+    margin-top: 2rem;
+  }
 
-.progress::-webkit-progress-bar {
-  background-color: #ffd2a0;
-  border-radius: 10px;
-}
+  .top {
+    margin-bottom: 1.5rem;
+  }
 
-.progress::-webkit-progress-value {
-  background-color: black;
-  border-radius: 8px;
-}
-
-.progress::-moz-progress-bar {
-  background-color: black;
-  border-radius: 8px;
-}
-
-[data-theme="dark"] .progress {
-  background-color: black;
-}
-
-[data-theme="dark"] .progress::-webkit-progress-bar {
-  background-color: black;
-}
-
-[data-theme="dark"] .progress::-webkit-progress-value {
-  background-color: #ffd2a0;
-}
-
-[data-theme="dark"] .progress::-moz-progress-bar {
-  background-color: #ffd2a0;
+  .top img {
+    width: 4rem;
+    margin-right: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .header {
-    margin-top: 2rem;
-    padding: 0 0.5rem;
+  .top img {
+    width: 3rem;
   }
 
-  .header img {
-    max-width: 5rem;
-  }
-
-  .header h1 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .options {
-    width: 80%;
-  }
-
-  .header p {
-    margin-left: 0;
-    margin-top: 0;
+  .top h1 {
+    font-size: 1.25rem;
   }
 }

@@ -14,31 +14,49 @@ function shuffleArray(array) {
 
 export default function QuizContextProvider({ children }) {
   const [userAnswers, setUserAnswers] = useState([]);
-  const [difficulty, setDifficulty] = useState("hard");
+  const [difficulty, setDifficulty] = useState("");
   const [questions, setQuestions] = useState([]);
+  const [quizStarted, setQuizStarted] = useState(false);
   const activeQuestionIndex = userAnswers.length;
-
-  useEffect(() => {
-    let shuffledQuestions;
-    if (difficulty === "easy") {
-      shuffledQuestions = shuffleArray(easyQuestions);
-    } else if (difficulty === "medium") {
-      shuffledQuestions = shuffleArray(mediumQuestions);
-    } else if (difficulty === "hard") {
-      shuffledQuestions = shuffleArray(hardQuestions);
-    }
-    setQuestions(shuffledQuestions);
-  }, [difficulty]);
-
   const quizIsComplete = activeQuestionIndex === questions.length;
 
   function handleSelectAnswer(selectedAnswer) {
     setUserAnswers((prevUserAnswers) => [...prevUserAnswers, selectedAnswer]);
   }
+
+  function startQuiz(selectedDifficulty) {
+    setDifficulty(selectedDifficulty);
+    setQuizStarted(true);
+  }
+
   function resetQuiz() {
     setUserAnswers([]);
-    setDifficulty("hard");
+    setDifficulty("");
+    setQuizStarted(false);
   }
+
+  useEffect(() => {
+    if (quizStarted) {
+      let shuffledQuestions;
+
+      if (difficulty === "easy") {
+        shuffledQuestions = shuffleArray(easyQuestions);
+      } else if (difficulty === "medium") {
+        shuffledQuestions = shuffleArray(mediumQuestions);
+      } else if (difficulty === "hard") {
+        shuffledQuestions = shuffleArray(hardQuestions);
+      } else if (difficulty === "expert") {
+        const allQuestions = [
+          ...easyQuestions,
+          ...mediumQuestions,
+          ...hardQuestions,
+        ];
+        shuffledQuestions = shuffleArray(allQuestions);
+      }
+
+      setQuestions(shuffledQuestions);
+    }
+  }, [quizStarted, difficulty]);
 
   const ctxValue = {
     questions,
@@ -46,8 +64,10 @@ export default function QuizContextProvider({ children }) {
     activeQuestionIndex,
     quizIsComplete,
     handleSelectAnswer,
-    setDifficulty,
+    startQuiz,
     resetQuiz,
+    quizStarted,
+    setDifficulty,
   };
 
   return (

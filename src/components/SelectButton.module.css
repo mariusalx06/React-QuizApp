@@ -1,0 +1,30 @@
+.selectButton {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  transition: background-color 0.3s ease;
+  width: 80%;
+  margin: 0.5rem 0rem;
+}
+
+.selectButton:hover {
+  background-color: black;
+  color: white;
+}
+
+[data-theme="dark"] .selectButton {
+  background-color: #333333;
+  color: white;
+}
+
+[data-theme="dark"] .selectButton:hover {
+  background-color: black;
+  color: white;
+}

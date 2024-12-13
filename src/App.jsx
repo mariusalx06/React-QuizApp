@@ -1,5 +1,5 @@
 import QuizContextProvider from "./store/QuizContext.jsx";
-
+import ThemeProvider from "./store/ThemeContext.jsx";
 import "./App.css";
 import Header from "./components/Header";
 import Quiz from "./components/Quiz";
@@ -7,10 +7,12 @@ import Quiz from "./components/Quiz";
 function App() {
   return (
     <>
-      <QuizContextProvider>
-        <Header />
-        <Quiz />
-      </QuizContextProvider>
+      <ThemeProvider>
+        <QuizContextProvider>
+          <Header />
+          <Quiz />
+        </QuizContextProvider>
+      </ThemeProvider>
     </>
   );
 }

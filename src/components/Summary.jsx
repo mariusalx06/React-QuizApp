@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import completedImg from "../assets/completed.png";
 import styles from "./Summary.module.css";
 import { QuizContext } from "../store/QuizContext";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 export default function Summary() {
   const [score, setScore] = useState(0);
@@ -68,9 +69,12 @@ export default function Summary() {
         })}
       </div>
       <div className={styles.bottomSide}>
-        <p>Score:{score}</p>
+        <p>
+          Score:{score}/{questions.length}
+        </p>
         <button onClick={resetQuiz} className={styles.resetButton}>
-          Reset
+          <KeyboardBackspaceIcon />
+          Menu
         </button>
       </div>
     </div>

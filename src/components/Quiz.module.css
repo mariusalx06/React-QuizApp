@@ -11,6 +11,7 @@
   background-color: #ffd2a0;
   backdrop-filter: blur(1px);
   color: black;
+  min-height: 450px;
 }
 
 @media (max-width: 600px) {

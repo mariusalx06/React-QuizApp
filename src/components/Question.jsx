@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import { QuizContext } from "../store/QuizContext.jsx";
+import { ThemeContext } from "../store/ThemeContext";
 import styles from "./Question.module.css";
+import SelectButton from "./SelectButton.jsx";
+import ProgressBar from "./ProgressBar.jsx";
 
 function shuffleAnswers(question) {
   const shuffledAnswers = [...question.answers];
@@ -11,24 +14,33 @@ function shuffleAnswers(question) {
 export default function Question() {
   const { questions, activeQuestionIndex, handleSelectAnswer } =
     useContext(QuizContext);
+  const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
   const question = questions[activeQuestionIndex];
   const currentQuestionAnswers = shuffleAnswers(question);
+  const progressValue =
+    questions.length > 0 ? activeQuestionIndex / questions.length : 0;
 
   return (
     <div className={styles.question}>
-      <h2>{question.text}</h2>
+      <div className={styles.centeredContainer}>
+        <ProgressBar
+          value={progressValue}
+          max={1}
+          isDarkMode={isDarkMode}
+          className={styles.progressBar}
+        />
+        <h2>{question.text}</h2>
+      </div>
       <ul className={styles.ulList}>
         {currentQuestionAnswers.map((answer, index) => (
           <li className={styles.liItem} key={index}>
-            <button
-              className={styles.answer}
+            <SelectButton
+              text={answer}
               onClick={() => {
                 handleSelectAnswer(answer);
               }}
-            >
-              {answer}
-            </button>
+            />
           </li>
         ))}
       </ul>
