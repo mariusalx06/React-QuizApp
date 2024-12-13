@@ -4,6 +4,7 @@ import { ThemeContext } from "../store/ThemeContext";
 import styles from "./Question.module.css";
 import SelectButton from "./SelectButton.jsx";
 import ProgressBar from "./ProgressBar.jsx";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 function shuffleAnswers(question) {
   const shuffledAnswers = [...question.answers];
@@ -12,7 +13,7 @@ function shuffleAnswers(question) {
 }
 
 export default function Question() {
-  const { questions, activeQuestionIndex, handleSelectAnswer } =
+  const { questions, activeQuestionIndex, handleSelectAnswer, menuQuiz } =
     useContext(QuizContext);
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
@@ -30,6 +31,7 @@ export default function Question() {
           isDarkMode={isDarkMode}
           className={styles.progressBar}
         />
+
         <h2>{question.text}</h2>
       </div>
       <ul className={styles.ulList}>
@@ -44,6 +46,10 @@ export default function Question() {
           </li>
         ))}
       </ul>
+      <button onClick={menuQuiz} className={styles.resetButton}>
+        <KeyboardBackspaceIcon />
+        Menu
+      </button>
     </div>
   );
 }

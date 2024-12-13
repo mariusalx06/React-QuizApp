@@ -1,5 +1,6 @@
 .question {
   min-width: 400px;
+  height: 480px;
 }
 .centeredContainer {
   display: flex;
@@ -60,10 +61,27 @@
   color: white;
 }
 
-@media (max-width: 600px) {
-  .answer {
-    width: 90%;
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
-  }
+.resetButton {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  transition: background-color 0.3s ease;
+  gap: 0.3rem;
+}
+
+.resetButton:hover {
+  background-color: black;
+  color: white;
+}
+
+.resetButton svg {
+  font-size: 1.25rem;
 }

@@ -17,6 +17,12 @@ export default function QuizContextProvider({ children }) {
   const [difficulty, setDifficulty] = useState("");
   const [questions, setQuestions] = useState([]);
   const [quizStarted, setQuizStarted] = useState(false);
+  const [progress, setProgress] = useState({
+    easy: null,
+    medium: null,
+    hard: null,
+    expert: null,
+  });
   const activeQuestionIndex = userAnswers.length;
   const quizIsComplete = activeQuestionIndex === questions.length;
 
@@ -29,10 +35,27 @@ export default function QuizContextProvider({ children }) {
     setQuizStarted(true);
   }
 
-  function resetQuiz() {
+  function completedProgress(level) {
+    setProgress((prevProgress) => ({
+      ...prevProgress,
+      [level]: "completed",
+    }));
+  }
+
+  function menuQuiz() {
     setUserAnswers([]);
     setDifficulty("");
     setQuizStarted(false);
+  }
+
+  function calculateProgress() {
+    let value = 0;
+    if (progress.easy === "completed") value += 0.2;
+    if (progress.medium === "completed") value += 0.2;
+    if (progress.hard === "completed") value += 0.2;
+    if (progress.expert === "completed") value += 0.4;
+
+    return value;
   }
 
   useEffect(() => {
@@ -63,11 +86,15 @@ export default function QuizContextProvider({ children }) {
     userAnswers,
     activeQuestionIndex,
     quizIsComplete,
+    quizStarted,
+    difficulty,
+    progress,
     handleSelectAnswer,
     startQuiz,
-    resetQuiz,
-    quizStarted,
+    menuQuiz,
     setDifficulty,
+    completedProgress,
+    calculateProgress,
   };
 
   return (

@@ -7,16 +7,15 @@ import ProgressBar from "./ProgressBar";
 
 export default function Header() {
   const { toggleTheme } = useContext(ThemeContext);
-  const { questions, activeQuestionIndex } = useContext(QuizContext);
+  const { calculateProgress } = useContext(QuizContext);
 
-  const progressValue =
-    questions.length > 0 ? activeQuestionIndex / questions.length : 0;
+  const progressValue = calculateProgress();
 
   return (
     <div className={styles.header}>
       <div className={styles.top}>
         <img src={notebookImg} alt="notebook image" />
-        <h1>Marius's React QuizzApp</h1>
+        <h1>Math Contest</h1>
       </div>
       <div className={styles.options}>
         <button

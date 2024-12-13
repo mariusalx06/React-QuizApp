@@ -21,7 +21,7 @@
 }
 
 .top img {
-  margin-right: 0.5rem;
+  margin-right: 2rem;
   width: 6rem;
   height: auto;
 }
@@ -81,7 +81,6 @@
 
   .top img {
     width: 4rem;
-    margin-right: 1rem;
   }
 }
 
